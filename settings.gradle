@@ -1,0 +1,2 @@
+include ':app', ':module-1', ':module-2'
+rootProject.name='CircleCi Test'
