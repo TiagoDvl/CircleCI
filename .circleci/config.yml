@@ -15,9 +15,7 @@ jobs:
           command: chmod +x ./gradlew
       - run:
           name: Download Dependencies
-          command: |
-          ./gradlew androidDependencies
-          ./gradlew :module-1:uploadArchives
+          command: ./gradlew androidDependencies
       - save_cache:
           paths:
             - ~/.gradle
@@ -30,3 +28,6 @@ jobs:
           destination: reports
       - store_test_results:
           path: app/build/test-results
+      - run:
+          name: Mimic upload Archive
+          command: ./gradlew :module-1:uploadArchives
